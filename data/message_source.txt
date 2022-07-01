@@ -1,0 +1,8 @@
+Hi! my name is*Cato - an AI bot that*is undefeated at*tic tac toe
+Your turn
+My turn !
+Congratulations !*you won. Do you*want to play again ?
+Oh ! looks like*I won. Do you want*to play again ?
+It is a draw! you*played very well*Do you want to*play again ?
+Please choose a *board size that*you want to play
+All my things*are created by*Thai Chi Hien

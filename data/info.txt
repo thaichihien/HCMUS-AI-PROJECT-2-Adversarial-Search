@@ -1,0 +1,5 @@
+VNUHCM - University of Science
+Project 2 :
+Adversarial Search
+Subject: Fundamentals of*Artificial Intelligence
+Implemented by Thai Chi Hien*Lecture: Pham Trong Nghia*TA: Nguyen Thai Vu
