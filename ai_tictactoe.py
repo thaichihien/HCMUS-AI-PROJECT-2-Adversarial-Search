@@ -1,4 +1,3 @@
-
 import random
 
 
@@ -7,7 +6,7 @@ COMPUTER = 1
 EMPTY = 0
 INFINITY = -1000
 
-
+#Cato is the name of the AI that will play this tic tac toe game :)
 class Cato:
     COUNT = 0
     def __init__(self) -> None:
