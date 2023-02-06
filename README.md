@@ -1,4 +1,4 @@
-# HCMUS-AI-PROJECT-2-Adversarial-Search -  Tic Tac Toe with AI
+# [HCMUS_AI] PROJECT 2 Adversarial Search -  Tic Tac Toe with AI
 
 A tic-tac-toe with the adversarial searching algorithm. The computer will try to win in a 3x3 or 5x5 map game using :
 - Min-Max Algorithm 
