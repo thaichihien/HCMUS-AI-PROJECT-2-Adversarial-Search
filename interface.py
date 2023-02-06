@@ -4,6 +4,10 @@ import pygame
 from ai_tictactoe import PLAYER,COMPUTER,EMPTY
 
 START_POS_BOARD = (300,30)
+COLOR_BACKGROUND = '0x43434F'
+COLOR_LIGHT = '0xFFFFEB'
+COLOR_MEDIUM = '0x7F7E8E'
+COLOR_DARK = '0x282735'
 
 
 class Board:
@@ -50,7 +54,7 @@ class Board:
 
     
     def draw_block(self,block_ui,block_game,screen,pos):
-        pygame.draw.rect(screen,'0xFFFFEB',block_ui)
+        pygame.draw.rect(screen,COLOR_LIGHT,block_ui)
         if self.IsFinished:
             if pos in self.wining_moves:
                 pygame.draw.rect(screen,'0x66FFE3',block_ui)
@@ -81,15 +85,15 @@ class Board:
 class CatoAvatar():
     def __init__(self,pos,filename) -> None:
         super().__init__()
-        self.frames = [pygame.image.load("AI/Lab02-TicTacToe/data/cato_idle_01.png").convert_alpha(),
-                  pygame.image.load("AI/Lab02-TicTacToe/data/cato_idle_02.png").convert_alpha(),
-                  pygame.image.load("AI/Lab02-TicTacToe/data/cato_play_01.png").convert_alpha(),
-                  pygame.image.load("AI/Lab02-TicTacToe/data/cato_play_02.png").convert_alpha(),
-                  pygame.image.load("AI/Lab02-TicTacToe/data/cato_play_03.png").convert_alpha(),
-                  pygame.image.load("AI/Lab02-TicTacToe/data/cato_play_04.png").convert_alpha(),
-                  pygame.image.load("AI/Lab02-TicTacToe/data/cato_play_05.png").convert_alpha(),
-                  pygame.image.load("AI/Lab02-TicTacToe/data/cato_finished.png").convert_alpha(),
-                  pygame.image.load("AI/Lab02-TicTacToe/data/cato_o.png").convert_alpha()]
+        self.frames = [pygame.image.load("data/cato_idle_01.png").convert_alpha(),
+                  pygame.image.load("data/cato_idle_02.png").convert_alpha(),
+                  pygame.image.load("data/cato_play_01.png").convert_alpha(),
+                  pygame.image.load("data/cato_play_02.png").convert_alpha(),
+                  pygame.image.load("data/cato_play_03.png").convert_alpha(),
+                  pygame.image.load("data/cato_play_04.png").convert_alpha(),
+                  pygame.image.load("data/cato_play_05.png").convert_alpha(),
+                  pygame.image.load("data/cato_finished.png").convert_alpha(),
+                  pygame.image.load("data/cato_o.png").convert_alpha()]
         
         frame_list = []
         for i in range(10):
@@ -110,7 +114,7 @@ class CatoAvatar():
         self.message_list = file.readlines()
         file.close()
 
-        self.speak = Text('AI/Lab02-TicTacToe/data/DePixelKlein.ttf',size=18)
+        self.speak = Text('data/DePixelKlein.ttf',size=18)
 
     
     def play_animation(self,screen,MODE='Idle'):
@@ -183,7 +187,7 @@ class Text:
 class Button(pygame.sprite.Sprite):
     def __init__(self,text : str,color = 'Black',position = (0,0),font_size=20) -> None:
         super().__init__()
-        self.text_font = pygame.font.Font('AI/Lab02-TicTacToe/data/DePixelHalbfett.ttf', font_size)
+        self.text_font = pygame.font.Font('data/DePixelHalbfett.ttf', font_size)
         self.text = text
         self.color = color
         self.image = self.text_font.render(self.text,False,color)
@@ -209,7 +213,7 @@ class Button(pygame.sprite.Sprite):
     def Event_Hover(self):
         mouse_pos = pygame.mouse.get_pos()
         if self.rect.collidepoint(mouse_pos):
-            self.image = self.text_font.render(self.text,False,'0xFFFFEB')
+            self.image = self.text_font.render(self.text,False,COLOR_LIGHT)
         else:
              self.image = self.text_font.render(self.text,False,self.color)
 
@@ -232,7 +236,3 @@ class Timer:
 
     def reset(self):
         self.setup = False
-
-
-
-

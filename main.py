@@ -41,8 +41,8 @@ def click_prepare(size_game):
     timer.reset()
 
 def display_info(info_list,pen):
-    pygame.draw.rect(screen,'0xFFFFEB',pygame.Rect(310,25,360,360))
-    pygame.draw.rect(screen,'0x7F7E8E',pygame.Rect(305,20,370,370),width=5)
+    pygame.draw.rect(screen,ui.COLOR_LIGHT,pygame.Rect(310,25,360,360))
+    pygame.draw.rect(screen,ui.COLOR_MEDIUM,pygame.Rect(305,20,370,370),width=5)
 
     pen.render_line(info_list[0],(352,50),screen,size=12)
     pen.render_line(info_list[1],(424,88),screen,size=16)
@@ -57,7 +57,7 @@ def display_info(info_list,pen):
 pygame.init()
 screen = pygame.display.set_mode((WIDTH,HEIGHT))
 pygame.display.set_caption('Tic Tac Toe')
-icon = pygame.image.load('AI/Lab02-TicTacToe/data/cato_icon.png').convert_alpha()
+icon = pygame.image.load('data/cato_icon.png').convert_alpha()
 pygame.display.set_icon(icon)
 MAX_FRAME = pygame.time.Clock()
 timer = ui.Timer()
@@ -83,11 +83,11 @@ button_3x3.add(ui.Button('3x3',position=(430,155),font_size=33))
 button_5x5 = pygame.sprite.GroupSingle()
 button_5x5.add(ui.Button('5x5',position=(430,255),font_size=33))
 
-avatar = ui.CatoAvatar((70,40),filename='AI/Lab02-TicTacToe/data/message_source.txt')
-message_box = pygame.image.load('AI/Lab02-TicTacToe/data/message_box.png')
-title_write = ui.Text(source='AI/Lab02-TicTacToe/data/DePixelHalbfett.ttf',size=45)
-time_write = ui.Text(source='AI/Lab02-TicTacToe/data/DePixelHalbfett.ttf',size=15)
-file = open('AI/Lab02-TicTacToe/data/info.txt')
+avatar = ui.CatoAvatar((70,40),filename='data/message_source.txt')
+message_box = pygame.image.load('data/message_box.png')
+title_write = ui.Text(source='data/DePixelHalbfett.ttf',size=45)
+time_write = ui.Text(source='data/DePixelHalbfett.ttf',size=15)
+file = open('data/info.txt')
 info_list = file.readlines()
 file.close()
 
@@ -106,9 +106,9 @@ while True:
             exit()
 
     #inteface
-    screen.fill("0x43434F")
-    pygame.draw.rect(screen,'0xFFFFEB',pygame.Rect(55,30,190,190))
-    pygame.draw.rect(screen,'0x7F7E8E',pygame.Rect(50,25,200,200),width=5)
+    screen.fill(ui.COLOR_BACKGROUND)
+    pygame.draw.rect(screen,ui.COLOR_LIGHT,pygame.Rect(55,30,190,190))
+    pygame.draw.rect(screen,ui.COLOR_MEDIUM,pygame.Rect(50,25,200,200),width=5)
     screen.blit(message_box,(50,240))
     
 
@@ -125,8 +125,8 @@ while True:
         #inteface
         avatar.play_animation(screen)
         avatar.send_message(screen,(65,265),0)
-        title_write.render_line('TIC TAC TOE',(313,43),screen,color='0x7F7E8E')
-        title_write.render_line('TIC TAC TOE',(310,40),screen,color='0x282735')
+        title_write.render_line('TIC TAC TOE',(313,43),screen,color=ui.COLOR_MEDIUM)
+        title_write.render_line('TIC TAC TOE',(310,40),screen,color=ui.COLOR_DARK)
 
         button_play.draw(screen)
         button_play.update()
@@ -143,8 +143,8 @@ while True:
         #inteface
         avatar.play_animation(screen)
         avatar.send_message(screen,(65,265),6)
-        title_write.render_line('TIC TAC TOE',(313,43),screen,color='0x7F7E8E')
-        title_write.render_line('TIC TAC TOE',(310,40),screen,color='0x282735')
+        title_write.render_line('TIC TAC TOE',(313,43),screen,color=ui.COLOR_MEDIUM)
+        title_write.render_line('TIC TAC TOE',(310,40),screen,color=ui.COLOR_DARK)
 
         if timer.wait(400):
             button_3x3.draw(screen)
@@ -161,8 +161,8 @@ while True:
         if not timer.wait(400):continue
 
         #inteface
-        pygame.draw.rect(screen,'0xFFFFEB',pygame.Rect(465,404,190,30))
-        pygame.draw.rect(screen,'0x7F7E8E',pygame.Rect(460,399,200,40),width=5)
+        pygame.draw.rect(screen,ui.COLOR_LIGHT,pygame.Rect(465,404,190,30))
+        pygame.draw.rect(screen,ui.COLOR_MEDIUM,pygame.Rect(460,399,200,40),width=5)
 
         #if playfirst:
         #    bot.play(board)
